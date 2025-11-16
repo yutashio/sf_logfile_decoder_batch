@@ -8,7 +8,7 @@ import argparse
 
 ap = argparse.ArgumentParser(description="Salesforce EventLogFile の LogFile(Base64) を一括デコードしてCSV出力するツール")
 ap.add_argument("input", help="EventLogFile CSVファイルへのパス")
-ap.add_argument("--outdir", help="出力先フォルダ（省略時は実行ディレクトリ直下に出力）")
+ap.add_argument("--outdir", help="出力先パス（省略時は実行ディレクトリ直下に出力）")
 args = ap.parse_args()
 
 # EventLogFile CSVファイルのチェック
