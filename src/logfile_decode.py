@@ -5,6 +5,15 @@ import sys
 import datetime
 import argparse
 
+# CSVのフィールドサイズ上限を引き上げ
+# OverflowError が出なくなるまで値を段階的に縮小
+max_int = sys.maxsize
+while True:
+    try:
+        csv.field_size_limit(max_int)
+        break
+    except OverflowError:
+        max_int //= 10
 
 ap = argparse.ArgumentParser(description="Salesforce EventLogFile の LogFile(Base64) を一括デコードしてCSV出力するツール")
 ap.add_argument("input", help="EventLogFile CSVファイルへのパス")
